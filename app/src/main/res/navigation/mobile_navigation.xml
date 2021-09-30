@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/couponFragment">
+
+    <fragment
+        android:id="@+id/couponFragment"
+        android:name="edu.hkbu.comp.androidhw.ui.coupons.CouponFragment"
+        android:label="fragment_coupon_list"
+        tools:layout="@layout/fragment_coupon_list" />
+    <fragment
+        android:id="@+id/mallFragment"
+        android:name="edu.hkbu.comp.androidhw.ui.malls.MallFragment"
+        android:label="fragment_mall_list"
+        tools:layout="@layout/fragment_mall_list" />
+    <fragment
+        android:id="@+id/coinFragment"
+        android:name="edu.hkbu.comp.androidhw.ui.coins.CoinFragment"
+        android:label="fragment_coin_list"
+        tools:layout="@layout/fragment_coin_list" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="edu.hkbu.comp.androidhw.ui.login.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+</navigation>

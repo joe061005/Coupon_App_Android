@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/couponFragment"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/mallFragment"
+        android:icon="@drawable/ic_shopping_bag_svgrepo_com"
+        android:title="Malls" />
+
+    <item
+        android:id="@+id/coinFragment"
+        android:icon="@drawable/ic_coin_svgrepo_com"
+        android:title="Coins" />
+
+    <item
+        android:id="@+id/loginFragment"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:title="User" />
+
+</menu>
