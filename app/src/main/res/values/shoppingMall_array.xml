@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="mall">
+        <item>IFC Mall</item>
+        <item>Pacific Place</item>
+        <item>Times Square</item>
+        <item>Elements</item>
+        <item>Harbour City</item>
+        <item>Festival Walk</item>
+        <item>MegaBox</item>
+        <item>APM</item>
+        <item>Tsuen Wan Plaza</item>
+        <item>New Town Plaza</item>
+    </string-array>
+
+    <string-array name="latitude">
+        <item>22.2849</item>
+        <item>22.2774985</item>
+        <item>22.2782079</item>
+        <item>22.3048708</item>
+        <item>22.2950689</item>
+        <item>22.3372971</item>
+        <item>22.319857</item>
+        <item>22.3121738</item>
+        <item>22.370735</item>
+        <item>22.3814592</item>
+    </string-array>
+
+    <string-array name="longitude">
+        <item>114.158917</item>
+        <item>114.1663225</item>
+        <item>114.1822994</item>
+        <item>114.1615219</item>
+        <item>114.1668661</item>
+        <item>114.1745273</item>
+        <item>114.208168</item>
+        <item>114.22513219999996</item>
+        <item>114.111309</item>
+        <item>114.1889307</item>
+    </string-array>
+
+</resources>
