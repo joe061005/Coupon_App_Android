@@ -8,21 +8,30 @@
     <fragment
         android:id="@+id/couponFragment"
         android:name="edu.hkbu.comp.androidhw.ui.coupons.CouponFragment"
-        android:label="fragment_coupon_list"
-        tools:layout="@layout/fragment_coupon_list" />
+        android:label="Home"
+        tools:layout="@layout/fragment_coupon_list" >
+        <action
+            android:id="@+id/action_couponFragment_to_couponDetailFragment"
+            app:destination="@id/couponDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/mallFragment"
         android:name="edu.hkbu.comp.androidhw.ui.malls.MallFragment"
-        android:label="fragment_mall_list"
+        android:label="Malls"
         tools:layout="@layout/fragment_mall_list" />
     <fragment
         android:id="@+id/coinFragment"
         android:name="edu.hkbu.comp.androidhw.ui.coins.CoinFragment"
-        android:label="fragment_coin_list"
+        android:label="Coins"
         tools:layout="@layout/fragment_coin_list" />
     <fragment
         android:id="@+id/loginFragment"
         android:name="edu.hkbu.comp.androidhw.ui.login.ui.login.LoginFragment"
-        android:label="fragment_login"
+        android:label="User"
         tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/couponDetailFragment"
+        android:name="edu.hkbu.comp.androidhw.CouponDetailFragment"
+        android:label="fragment_coupon_detail"
+        tools:layout="@layout/fragment_coupon_detail" />
 </navigation>

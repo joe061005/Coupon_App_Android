@@ -7,5 +7,5 @@ data class Coupon(
     val coins: Int,
     val mall:String,
     val validtill: String,
-    val detail: String
+    val detail: String,
 )

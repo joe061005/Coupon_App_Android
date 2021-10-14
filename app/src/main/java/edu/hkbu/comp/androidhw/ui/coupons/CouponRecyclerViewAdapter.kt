@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import com.squareup.picasso.Picasso
 import edu.hkbu.comp.androidhw.R
 import edu.hkbu.comp.androidhw.data.Coupon
@@ -54,6 +56,17 @@ class CouponRecyclerViewAdapter(
         val restaurantTextView: TextView = binding.restaurantTextView
         val detailTextView: TextView = binding.detailTextView
         val coinTextView: TextView = binding.coinTextView
+
+        init{
+            binding.root.setOnClickListener{
+                println(item)
+                /*it.findNavController().navigate(
+                    R.id.action_couponFragment_to_couponDetailFragment,
+                    bundleOf(Pair("image", i)
+
+                )*/
+            }
+        }
 
         override fun toString(): String {
             return super.toString() + " '" + detailTextView.text + "'"
