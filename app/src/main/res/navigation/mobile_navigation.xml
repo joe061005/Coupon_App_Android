@@ -33,7 +33,11 @@
         android:id="@+id/couponDetailFragment"
         android:name="edu.hkbu.comp.androidhw.ui.coupons.CouponDetailFragment"
         android:label="Coupon Details"
-        tools:layout="@layout/fragment_coupon_detail" />
+        tools:layout="@layout/fragment_coupon_detail" >
+        <action
+            android:id="@+id/action_couponDetailFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/mapsFragment"
         android:name="edu.hkbu.comp.androidhw.ui.maps.MapsFragment"

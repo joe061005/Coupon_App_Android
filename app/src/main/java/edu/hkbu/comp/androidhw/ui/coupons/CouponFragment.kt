@@ -56,6 +56,7 @@ class CouponFragment : Fragment() {
             coupon.add(Coupon(image[i],name[i],title[i],coin[i]))
         recyclerView.adapter = CouponRecyclerViewAdapter(coupon)*/
         val COUPON_URL = resources.getString(R.string.baseURL)
+
         CoroutineScope(IO).launch{
             try{
                 val json = Network.getTextFromNetwork(COUPON_URL)
