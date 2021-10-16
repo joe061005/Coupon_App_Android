@@ -40,6 +40,8 @@ class CouponFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val recyclerView = inflater.inflate(R.layout.fragment_coupon_list, container, false) as RecyclerView
+
+
         reloadData(recyclerView)
         return recyclerView
     }

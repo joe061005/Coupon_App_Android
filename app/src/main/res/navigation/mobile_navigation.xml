@@ -31,7 +31,12 @@
         tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/couponDetailFragment"
-        android:name="edu.hkbu.comp.androidhw.CouponDetailFragment"
-        android:label="fragment_coupon_detail"
+        android:name="edu.hkbu.comp.androidhw.ui.coupons.CouponDetailFragment"
+        android:label="Coupon Details"
         tools:layout="@layout/fragment_coupon_detail" />
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="edu.hkbu.comp.androidhw.ui.maps.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
 </navigation>

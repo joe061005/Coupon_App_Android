@@ -1,6 +1,7 @@
 package edu.hkbu.comp.androidhw.ui.coupons
 
 import android.content.Context
+import android.content.Intent
 import android.icu.number.NumberFormatter.with
 import android.icu.number.NumberRangeFormatter.with
 import androidx.recyclerview.widget.RecyclerView
@@ -57,14 +58,21 @@ class CouponRecyclerViewAdapter(
         val detailTextView: TextView = binding.detailTextView
         val coinTextView: TextView = binding.coinTextView
 
-        init{
+        init {
             binding.root.setOnClickListener{
-                //println(item)
-                /*it.findNavController().navigate(
-                    R.id.action_couponFragment_to_couponDetailFragment,
-                    bundleOf(Pair("image", i)
+                val coupon = values[bindingAdapterPosition]
 
-                )*/
+                it.findNavController().navigate(
+                    R.id.action_couponFragment_to_couponDetailFragment,
+                    bundleOf(
+                        Pair("image", coupon.image),
+                        Pair("name", coupon.name),
+                        Pair("title", coupon.title),
+                        Pair("mall", coupon.mall),
+                        Pair("coins", coupon.coins),
+                        Pair("validtill", coupon.validtill)
+                    )
+                )
             }
         }
 
