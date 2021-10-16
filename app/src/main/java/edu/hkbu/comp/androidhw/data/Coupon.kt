@@ -1,11 +1,14 @@
 package edu.hkbu.comp.androidhw.data
 
 data class Coupon(
-    val image: String,
-    val name: String,
+    val id: Int,
     val title: String,
-    val coins: Int,
+    val name: String,
+    val region: String,
     val mall:String,
+    val image: String,
+    val quota: Int,
+    val coins: Int,
     val validtill: String,
-    val detail: String,
+    val detail: String
 )

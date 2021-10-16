@@ -59,7 +59,7 @@ class CouponRecyclerViewAdapter(
 
         init{
             binding.root.setOnClickListener{
-                println(item)
+                //println(item)
                 /*it.findNavController().navigate(
                     R.id.action_couponFragment_to_couponDetailFragment,
                     bundleOf(Pair("image", i)
