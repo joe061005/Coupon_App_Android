@@ -18,15 +18,29 @@
         android:id="@+id/mallFragment"
         android:name="edu.hkbu.comp.androidhw.ui.malls.MallFragment"
         android:label="Malls"
-        tools:layout="@layout/fragment_mall_list" />
+        tools:layout="@layout/fragment_mall_list" >
+        <action
+            android:id="@+id/action_mallFragment_self"
+            app:destination="@id/mallFragment" />
+        <action
+            android:id="@+id/action_mallFragment_to_couponDetailFragment"
+            app:destination="@id/couponDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/coinFragment"
         android:name="edu.hkbu.comp.androidhw.ui.coins.CoinFragment"
         android:label="Coins"
-        tools:layout="@layout/fragment_coin_list" />
+        tools:layout="@layout/fragment_coin_list" >
+        <action
+            android:id="@+id/action_coinFragment_self"
+            app:destination="@id/coinFragment" />
+        <action
+            android:id="@+id/action_coinFragment_to_couponDetailFragment"
+            app:destination="@id/couponDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="edu.hkbu.comp.androidhw.ui.login.ui.login.LoginFragment"
+        android:name="edu.hkbu.comp.androidhw.ui.User.LoginFragment"
         android:label="User"
         tools:layout="@layout/fragment_login" />
     <fragment
@@ -43,4 +57,13 @@
         android:name="edu.hkbu.comp.androidhw.ui.maps.MapsFragment"
         android:label="fragment_maps"
         tools:layout="@layout/fragment_maps" />
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="edu.hkbu.comp.androidhw.ui.User.UserFragment"
+        android:label="User"
+        tools:layout="@layout/fragment_user" >
+        <action
+            android:id="@+id/action_userFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>

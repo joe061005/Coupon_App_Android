@@ -8,6 +8,7 @@
     android:layout_height="match_parent"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
+    android:layout_marginBottom="70dp"
     app:layoutManager="LinearLayoutManager"
     tools:context=".ui.coupons.CouponFragment"
     tools:listitem="@layout/fragment_coupon_item" />

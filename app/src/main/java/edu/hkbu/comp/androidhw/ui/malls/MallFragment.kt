@@ -1,6 +1,8 @@
 package edu.hkbu.comp.androidhw.ui.malls
 
+import android.net.Network
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -8,8 +10,21 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import edu.hkbu.comp.androidhw.Network.Companion.getTextFromNetwork
 import edu.hkbu.comp.androidhw.R
+import edu.hkbu.comp.androidhw.data.Coupon
+import edu.hkbu.comp.androidhw.databinding.FragmentMallListBinding
 import edu.hkbu.comp.androidhw.ui.malls.placeholder.PlaceholderContent
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.launch
+import java.lang.Exception
+import java.net.URLEncoder
+
 
 /**
  * A fragment representing a list of Items.
@@ -17,6 +32,8 @@ import edu.hkbu.comp.androidhw.ui.malls.placeholder.PlaceholderContent
 class MallFragment : Fragment() {
 
     private var columnCount = 1
+    private var currentView: View? = null
+    private var showBackButton = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,23 +43,63 @@ class MallFragment : Fragment() {
         }
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_mall_list, container, false)
 
-        // Set the adapter
-        if (view is RecyclerView) {
-            with(view) {
-                layoutManager = when {
-                    columnCount <= 1 -> LinearLayoutManager(context)
-                    else -> GridLayoutManager(context, columnCount)
+        if(currentView == null) {
+            val view = inflater.inflate(R.layout.fragment_mall_list, container, false)
+
+            // Set the adapter
+            if (view is RecyclerView) {
+                with(view) {
+                    layoutManager = when {
+                        columnCount <= 1 -> LinearLayoutManager(context)
+                        else -> GridLayoutManager(context, columnCount)
+                    }
+                    val mallName = arguments?.getString("mall")
+                    if (mallName == null) {
+                        adapter =
+                            MallRecyclerViewAdapter(
+                                resources.getStringArray(R.array.mall).toList()
+                            )
+                        showBackButton = false
+                    } else {
+                        val URL = "${resources.getString(R.string.baseURL)}/mall/$mallName"
+
+                        CoroutineScope(IO).launch {
+                            try {
+                                val json = getTextFromNetwork(URL)
+                                val coupons = Gson().fromJson<List<Coupon>>(
+                                    json,
+                                    object : TypeToken<List<Coupon>>() {}.type
+                                )
+                                println(json)
+                                CoroutineScope(Main).launch {
+                                    adapter = RestByMallRecyclerViewAdapter(coupons)
+                                }
+
+
+                            } catch (e: Exception) {
+                                Log.d("MallFragment", "loadData: ${e}")
+                            }
+                        }
+                        showBackButton = true
+
+                    }
+
                 }
-                adapter = MalllRecyclerViewAdapter(PlaceholderContent.ITEMS)
             }
+            currentView = view
         }
-        return view
+        if(showBackButton){
+            (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(
+                true
+            )
+        }
+        return currentView
     }
 
     companion object {

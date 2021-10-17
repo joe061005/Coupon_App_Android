@@ -50,12 +50,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="10dp"
         android:textAppearance="?attr/textAppearanceListItem"
         android:textSize="16sp" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="50dp" />
 
 </LinearLayout>

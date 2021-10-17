@@ -26,6 +26,7 @@ import kotlinx.coroutines.launch
 class CouponFragment : Fragment() {
 
     private var columnCount = 1
+    private var currentView: View? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,11 +40,13 @@ class CouponFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val recyclerView = inflater.inflate(R.layout.fragment_coupon_list, container, false) as RecyclerView
 
-
-        reloadData(recyclerView)
-        return recyclerView
+        if(currentView == null) {
+            val recyclerView = inflater.inflate(R.layout.fragment_coupon_list, container, false) as RecyclerView
+            reloadData(recyclerView)
+            currentView = recyclerView
+        }
+        return currentView
     }
 
     private fun reloadData(recyclerView: RecyclerView){

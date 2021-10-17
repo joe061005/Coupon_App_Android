@@ -44,7 +44,7 @@ class CouponRecyclerViewAdapter(
         val item = values[position]
         holder.restaurantTextView.text = item.name
         holder.detailTextView.text = item.title
-        holder.coinTextView.text = "coins: " + item.coins.toString()
+        holder.coinTextView.text = "coins: ${item.coins}"
         //Picasso.get().setLoggingEnabled(true)
         Picasso.get().load(item.image).into(holder.couponImageView)
 

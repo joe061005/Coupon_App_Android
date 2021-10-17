@@ -35,8 +35,8 @@ class CouponDetailFragment : Fragment(){
         Picasso.get().load(image).into(binding.RestImageView)
         binding.RestNameTextView.text = name
         binding.DescTextView.text = title
-        binding.DateTextView.text = "Expiry Date: " + validtill
-        binding.MallCoinTextView.text = "Mall: " + mall + ", Coins: " + coins +","
+        binding.DateTextView.text = "Expiry Date: $validtill"
+        binding.MallCoinTextView.text = "Mall: $mall, Coins: $coins,"
 
         val Addressbutton = binding.AddressButton
 
@@ -47,6 +47,7 @@ class CouponDetailFragment : Fragment(){
             for(i in 0..(mallArray.size-1)){
                 if(mallArray[i].equals(mall)){
                     index = i
+                    break
                 }
             }
 

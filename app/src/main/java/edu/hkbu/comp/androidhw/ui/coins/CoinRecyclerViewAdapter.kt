@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import edu.hkbu.comp.androidhw.R
-import edu.hkbu.comp.androidhw.databinding.FragmentCoinItemBinding
+import edu.hkbu.comp.androidhw.databinding.FragmentCoinRangeBinding
 
 import edu.hkbu.comp.androidhw.ui.coins.placeholder.PlaceholderContent.PlaceholderItem
 //import edu.hkbu.comp.androidhw.ui.coins.databinding.FragmentCoinItemBinding
@@ -16,13 +18,13 @@ import edu.hkbu.comp.androidhw.ui.coins.placeholder.PlaceholderContent.Placehold
  * TODO: Replace the implementation with code for your data type.
  */
 class CoinRecyclerViewAdapter(
-    private val values: List<PlaceholderItem>
+    private val values: List<String>
 ) : RecyclerView.Adapter<CoinRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         return ViewHolder(
-            FragmentCoinItemBinding.inflate(
+            FragmentCoinRangeBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -32,20 +34,26 @@ class CoinRecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = values[position]
-        holder.idView.text = item.id
-        holder.contentView.text = item.content
+        holder.coinRangeView.text = values[position]
     }
 
     override fun getItemCount(): Int = values.size
 
-    inner class ViewHolder(binding: FragmentCoinItemBinding) :
+    inner class ViewHolder(binding: FragmentCoinRangeBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        val idView: TextView = binding.itemNumber
-        val contentView: TextView = binding.content
+        val coinRangeView: TextView = binding.coinRange
+
+        init {
+            binding.root.setOnClickListener {
+                it.findNavController().navigate(
+                    R.id.action_coinFragment_self,
+                    bundleOf(Pair("coinRange", coinRangeView.text))
+                )
+            }
+        }
 
         override fun toString(): String {
-            return super.toString() + " '" + contentView.text + "'"
+            return super.toString() + " '" + coinRangeView.text + "'"
         }
     }
 

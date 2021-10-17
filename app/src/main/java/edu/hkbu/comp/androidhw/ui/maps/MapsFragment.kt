@@ -36,7 +36,7 @@ class MapsFragment : Fragment() {
         val mall = latitude?.let { longitude?.let { it1 -> LatLng(it.toDouble(), it1.toDouble()) } }
         googleMap.addMarker(mall?.let { MarkerOptions().position(it).title(MallName) }).showInfoWindow()
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(mall))
-        googleMap.animateCamera(CameraUpdateFactory.zoomTo(16F))
+        googleMap.animateCamera(CameraUpdateFactory.zoomTo(17F))
     }
 
     override fun onCreateView(

@@ -10,11 +10,12 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import edu.hkbu.comp.androidhw.data.User
 import edu.hkbu.comp.androidhw.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.fragment_coupon_detail.view.*
 import kotlinx.android.synthetic.main.fragment_coupon_item.view.*
 
-var globalVariable = "global"
+var user = User(-1, "Guest", "Guest", -1)
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.couponFragment,R.id.mallFragment,R.id.coinFragment,R.id.loginFragment
+                R.id.couponFragment,R.id.mallFragment,R.id.coinFragment,R.id.userFragment
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
