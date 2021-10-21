@@ -7,7 +7,7 @@
         <entry key="app/src/main/res/drawable/item_background.xml" value="0.22083333333333333" />
         <entry key="app/src/main/res/drawable/listback.xml" value="0.22864583333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.24239901085182272" />
-        <entry key="app/src/main/res/layout/fragment_coin_item.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/fragment_coin_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_coin_list.xml" value="0.20153985507246377" />
         <entry key="app/src/main/res/layout/fragment_coin_range.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_coupon_detail.xml" value="0.375" />
@@ -17,6 +17,8 @@
         <entry key="app/src/main/res/layout/fragment_mall_item.xml" value="0.3818164344469334" />
         <entry key="app/src/main/res/layout/fragment_mall_list.xml" value="0.1322463768115942" />
         <entry key="app/src/main/res/layout/fragment_maps.xml" value="0.22552083333333334" />
+        <entry key="app/src/main/res/layout/fragment_redeemedcoupon.xml" value="0.18614130434782608" />
+        <entry key="app/src/main/res/layout/fragment_redeemedcoupon_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_user.xml" value="0.30598442896596556" />
         <entry key="app/src/main/res/layout/fragment_user_list_item.xml" value="0.35664335664335667" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.23125" />

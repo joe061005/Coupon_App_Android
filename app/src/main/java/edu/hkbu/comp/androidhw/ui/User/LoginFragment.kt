@@ -2,6 +2,7 @@ package edu.hkbu.comp.androidhw.ui.User
 
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,27 +10,32 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.gson.Gson
 import edu.hkbu.comp.androidhw.R
+//import edu.hkbu.comp.androidhw.cookie
 import edu.hkbu.comp.androidhw.data.User
 import edu.hkbu.comp.androidhw.databinding.FragmentLoginBinding
-import edu.hkbu.comp.androidhw.user
+//import edu.hkbu.comp.androidhw.user
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
+import java.net.CookieManager
 import java.net.URL
 
 class LoginFragment: Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
+    private var user: User = User(-1, "Guest", "Guest", -1)
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         val view = binding.root
 
@@ -73,6 +79,8 @@ class LoginFragment: Fragment() {
     }
 
     fun post(username: String, password: String): Boolean{
+        val settings = context?.getSharedPreferences("userData",0)
+
         val client = OkHttpClient()
         val url = URL("${resources.getString(R.string.baseURL)}/login")
 
@@ -99,6 +107,8 @@ class LoginFragment: Fragment() {
 
             code = response.code
 
+            println("CODEL $code")
+
             if(code != 401) {
 
                 val responseBody = response.body!!.string()
@@ -107,7 +117,13 @@ class LoginFragment: Fragment() {
 
                 user = result
 
-               // val objData = mapperAll.readTree(responseBody)
+                println("COOKIE ${response.headers["set-cookie"].toString().split(";")[0]}")
+
+                settings?.edit()?.putString("currentUser", Gson().toJson(result))
+                    ?.putString("cookie", response.headers["set-cookie"].toString())
+                    ?.putBoolean("isLogin", true)
+                    ?.apply()
+
             }
 
         }
@@ -115,7 +131,6 @@ class LoginFragment: Fragment() {
         thread.join()
 
         return code != 401
-
 
     }
 

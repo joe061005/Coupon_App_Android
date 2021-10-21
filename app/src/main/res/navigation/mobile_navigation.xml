@@ -65,5 +65,20 @@
         <action
             android:id="@+id/action_userFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_redeemedcouponfragment"
+            app:destination="@id/redeemedcouponfragment" />
+        <action
+            android:id="@+id/action_userFragment_self"
+            app:destination="@id/userFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/redeemedcouponfragment"
+        android:name="edu.hkbu.comp.androidhw.ui.redeemedCoupons.redeemedcouponfragment"
+        android:label="My Redeemed Coupons"
+        tools:layout="@layout/fragment_redeemedcoupon_list" >
+        <action
+            android:id="@+id/action_redeemedcouponfragment_to_couponDetailFragment"
+            app:destination="@id/couponDetailFragment" />
     </fragment>
 </navigation>

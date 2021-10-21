@@ -1,5 +1,6 @@
 package edu.hkbu.comp.androidhw
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -10,19 +11,31 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.gson.Gson
 import edu.hkbu.comp.androidhw.data.User
 import edu.hkbu.comp.androidhw.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.fragment_coupon_detail.view.*
 import kotlinx.android.synthetic.main.fragment_coupon_item.view.*
 
-var user = User(-1, "Guest", "Guest", -1)
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val settings: SharedPreferences = applicationContext.getSharedPreferences("userData", 0)
+
+        if(settings.getString("currentUser", "") == "") {
+            val json = Gson().toJson(User(-1, "Guest", "Guest", -1))
+            settings.edit().putString("DefaultUser", json)
+                .putString("cookie", "")
+                .putBoolean("isLogin", false)
+                .putString("currentUser", "")
+                .apply()
+        }
+
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

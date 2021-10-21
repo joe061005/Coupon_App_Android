@@ -65,6 +65,7 @@ class CouponFragment : Fragment() {
                 val json = Network.getTextFromNetwork(COUPON_URL)
                 // convert the string json into List<Coupon>
                 val coupons = Gson().fromJson<List<Coupon>>(json, object: TypeToken<List<Coupon>>(){}.type)
+                println("coupon: $coupons")
                 CoroutineScope(Main).launch {
                     recyclerView.adapter = CouponRecyclerViewAdapter(coupons)
                 }
