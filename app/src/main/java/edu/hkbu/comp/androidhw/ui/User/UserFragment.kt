@@ -120,18 +120,14 @@ class UserFragment : Fragment() {
                 code = response.code
             }
 
-            println("CODEL $code")
-
-            if(code == 200) {
-                settings?.edit()?.putString("cookie", "")?.putBoolean("isLogin", false)
-                    ?.putString("currentUser", "")?.apply()
-            }
-
         }
         thread.start()
         thread.join()
 
         if(code == 200){
+            settings?.edit()?.putString("cookie", "")?.putBoolean("isLogin", false)
+                ?.putString("currentUser", "")?.apply()
+
             AlertDialog.Builder(context)
                 .setTitle("Logout successfully")
                 .setMessage("See you next time")

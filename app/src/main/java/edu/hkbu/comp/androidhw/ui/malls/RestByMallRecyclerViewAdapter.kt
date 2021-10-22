@@ -51,7 +51,9 @@ class RestByMallRecyclerViewAdapter (
                         Pair("title", coupon.title),
                         Pair("mall", coupon.mall),
                         Pair("coins", coupon.coins),
-                        Pair("validtill", coupon.validtill)
+                        Pair("validtill", coupon.validtill),
+                        Pair("id", coupon.id),
+                        Pair("quota", coupon.quota)
                     )
                 )
             }

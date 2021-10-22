@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         val settings: SharedPreferences = applicationContext.getSharedPreferences("userData", 0)
 
-        if(settings.getString("currentUser", "") == "") {
+        if(settings.getString("DefaultUser", "") == "") {
             val json = Gson().toJson(User(-1, "Guest", "Guest", -1))
             settings.edit().putString("DefaultUser", json)
                 .putString("cookie", "")
