@@ -55,7 +55,7 @@
     <fragment
         android:id="@+id/mapsFragment"
         android:name="edu.hkbu.comp.androidhw.ui.maps.MapsFragment"
-        android:label="fragment_maps"
+        android:label="Map"
         tools:layout="@layout/fragment_maps" />
     <fragment
         android:id="@+id/userFragment"

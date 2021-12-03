@@ -108,10 +108,16 @@ class CouponDetailFragment : Fragment(){
                                  .setPositiveButton("OK", null)
                                  .show()
                          }else{
-                                 if(user.coins < coins!! || quota == 0){
+                                 if(user.coins < coins!!){
                                      AlertDialog.Builder(context)
-                                         .setTitle("cannot redeeem")
-                                         .setMessage("No quota/ Not enough coins")
+                                         .setTitle("cannot redeem")
+                                         .setMessage("Not enough coins")
+                                         .setPositiveButton("OK", null)
+                                         .show()
+                                 }else if(quota == 0){
+                                     AlertDialog.Builder(context)
+                                         .setTitle("cannot redeem")
+                                         .setMessage("No quota")
                                          .setPositiveButton("OK", null)
                                          .show()
                                  }else {
